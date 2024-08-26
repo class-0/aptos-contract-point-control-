@@ -84,20 +84,16 @@ module point_addr::point_control {
         assert_is_operator(addr);
         let point = borrow_global_mut<Point>(@point_addr);
         assert!(coin::balance<AptosCoin>(addr) >= point.fee, ERR_INSUFFICIENT_BALANCE);
-
         let coin = coin::withdraw<AptosCoin>(acc, point.fee);
         coin::deposit(point.owner, coin);
         let cur_timestamp = timestamp::now_microseconds();
         assert!(point.timestamp + 24 * 60 * 60 * 1000 < cur_timestamp , ERR_LOCKED_PERIOD);
-
         *(&mut point.timestamp) = cur_timestamp;
         *(&mut point.points) = point.points + 1;
     }
-
      #[view]
     public fun point(): u64 acquires Point {
         assert_is_initialized();
-
         borrow_global<Point>(@point_addr).points
     }
 }

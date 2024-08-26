@@ -3,6 +3,7 @@ name = "point-control"
 version = "1.0.0"
 authors = []
 
+
 [addresses]
 point_addr = "0xa7eccda457653e9ec4ae2a02571a7314bca5f875f363d30b7726eec1a888b8aa"
 
