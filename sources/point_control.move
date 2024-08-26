@@ -7,13 +7,9 @@ module point_addr::point_control {
     use aptos_framework::aptos_coin::AptosCoin;
 
     const ERR_NOT_OWNER: u64 = 1;
-
     const ERR_NOT_INITIALIZED: u64 = 2;
-    
     const ERR_NOT_OPERATOR: u64 = 3;
-
     const ERR_LOCKED_PERIOD: u64 = 4;
-
     const ERR_INSUFFICIENT_BALANCE: u64 = 5;
 
     struct Point has key {
